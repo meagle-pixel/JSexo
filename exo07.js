@@ -1,4 +1,4 @@
-let codeSecret = "Delta";
+let codeSecret = "arme";
 
 switch (codeSecret) {
   case "Alpha":
@@ -14,4 +14,11 @@ switch (codeSecret) {
     break;
   case "Delta":
     console.log("Vérifier l'inventaire des accessoires !");
+  default:
+      console.log("Il n'y a rien pour vous !");  
 }
+
+
+
+
+
