@@ -1,0 +1,9 @@
+const myArr = [1, 2, 3];
+
+function reducer(a, b, i) {
+  console.log("accumulateur", a);
+  console.log("value", b);
+  return a + b;
+}
+const result = myArr.reduce(reducer, 0); // result devient 6
+console.log(result);

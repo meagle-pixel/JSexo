@@ -64,7 +64,7 @@ let jeu1 = {
         console.log("Score :", this.score);
     },
         
-    getPopularite () {
+    getPopularite() {
         return(this.score * this.sortie) / 100
     }
 };
