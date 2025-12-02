@@ -18,20 +18,39 @@ let collection = [
 
 function afficher(jeu) {
   console.log("*** JEU ***");
-  console.log(`Titre : ${jeu.titre}`)
+  console.log(`Titre : ${jeu.titre}`);
   console.log(`Année : ${jeu.anneeSortie}`);
-  console.log(`Score : ${jeu.score}`)
+  console.log(`Score : ${jeu.score}`);
 }
 
 function afficherCollection(collection) {
-  console.log("*** COLLECTION DE JEUX ***");
   collection.forEach(function (jeu) {
     afficher(jeu);
   });
 }
 
+function calculerMoyenneScore(jeu) {
+  let total = jeu.score.reduce((acc, score) => acc + score, 0);
+  let moyenne = total / jeu.score.length;
+  return moyenne;
+}
+
+function calculerMoyenneScoreCollection(collection) {
+  let totalMoyennes = 0;
+  collection.forEach((jeu) => {
+    totalMoyennes += calculerMoyenneScore(jeu);
+  });
+
+  return totalMoyennes / collection.length;
+}
+
 afficherCollection(collection);
 
-function calculerMoyenneScore (jeu) {
-  let total = jeu.score.reduce()
-}
+console.log(
+  "Moyenne de Space Adventure :",
+  calculerMoyenneScore(collection[0])
+);
+console.log(
+  "Moyenne générale de la collection :",
+  calculerMoyenneScoreCollection(collection)
+);

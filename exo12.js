@@ -25,21 +25,34 @@ function afficherListeJeux(liste) {
         jeu.titre +
         " | Date : " +
         jeu.date +
-        " | Genre :" +
+        " | Genre : " +
         jeu.genre
     );
   });
 }
 
 afficherListeJeux(jeuModernes);
-console.log("Moyenne années modernes :", calculerMoyenneAnneesSortie(jeuModernes));
-afficherListeJeux(jeuRetro);
+console.log(
+  "Moyenne années modernes :",
+ Math.round(calculerMoyenneAnneesSortie(jeuModernes)) 
+);
 
 function calculerMoyenneAnneesSortie(liste) {
-  const reducer = (accumulator, currentValue) =>
-    accumulator + currentValue.date;
-  const result = liste.reduce(reducer,0);
-  return result / liste.length;
+  let total = liste.reduce((acc, jeu) => {
+    return acc + jeu.date; 
+  }, 0);
+
+  return total / liste.length; 
 }
+
+// function calculerMoyenneAnneesSortie(liste) {
+//   const reducer = (accumulator, currentValue) =>
+//     accumulator + currentValue.date;
+//   const result = liste.reduce(reducer, 0);
+//   return result / liste.length;
+// }
+
+
+afficherListeJeux(jeuRetro);
 
 console.log("Moyenne années rétro :", calculerMoyenneAnneesSortie(jeuRetro));
