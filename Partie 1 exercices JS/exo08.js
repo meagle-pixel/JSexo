@@ -17,3 +17,4 @@ console.log("Prix normal :",prixJeu, "€");
 console.log("Prix après promo d'été :", promoEte(prixJeu), "€");
 console.log("Prix après promo d'hiver :", promoHiver(prixJeu), "€");
 console.log("Prix après promo spéciale :", promoSpeciale(prixJeu,15), "€");
+

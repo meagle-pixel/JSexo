@@ -1,5 +1,5 @@
 function creerJeu(nom, date, genre) {
-  return {
+  return { 
     titre: nom,
     date: date,
     genre: genre,
@@ -32,27 +32,31 @@ function afficherListeJeux(liste) {
 }
 
 afficherListeJeux(jeuModernes);
-console.log(
-  "Moyenne années modernes :",
+console.log("Moyenne années modernes :",
  Math.round(calculerMoyenneAnneesSortie(jeuModernes)) 
 );
 
-function calculerMoyenneAnneesSortie(liste) {
-  let total = liste.reduce((acc, jeu) => {
-    return acc + jeu.date; 
-  }, 0);
-
-  return total / liste.length; 
-}
-
 // function calculerMoyenneAnneesSortie(liste) {
-//   const reducer = (accumulator, currentValue) =>
-//     accumulator + currentValue.date;
-//   const result = liste.reduce(reducer, 0);
-//   return result / liste.length;
+//   let total = liste.reduce((acc, jeu) => {
+//     return acc + jeu.date; 
+//   }, 0);
+
+//   return total / liste.length; 
 // }
 
+function calculerMoyenneAnneesSortie(liste) {
+  let total = 0;
+  for(let i=0; i<liste.length; i++) {
+  let date = liste[i].date;
+    console.log("lancement de la fonction for");
+    console.log(date);
+    total = date + total;
+  }
+  return total / liste.length;
+}
 
-afficherListeJeux(jeuRetro);
+console.log(calculerMoyenneAnneesSortie(jeuModernes));
+ 
+// afficherListeJeux(jeuRetro);
 
-console.log("Moyenne années rétro :", calculerMoyenneAnneesSortie(jeuRetro));
+// console.log("Moyenne années rétro :", calculerMoyenneAnneesSortie(jeuRetro));
