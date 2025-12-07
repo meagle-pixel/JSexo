@@ -1,14 +1,31 @@
-const CAPACITE_DE_LETAGERE = 10;
-let jeuxEnStock = Number(
-  prompt("Combien de jeux vidéo avez-vous reçus en stock aujourd'hui ?")
-);
+// const CAPACITE_DE_LETAGERE = 10;
+// let jeuxEnStock = Number(
+//   prompt("Combien de jeux vidéo avez-vous reçus en stock aujourd'hui ?")
+// );
 
-let etageresPleines = Math.floor(jeuxEnStock / CAPACITE_DE_LETAGERE);
-let jeuxRestants = jeuxEnStock % CAPACITE_DE_LETAGERE;
+// let etageresPleines = Math.floor(jeuxEnStock / CAPACITE_DE_LETAGERE);
+// let jeuxRestants = jeuxEnStock % CAPACITE_DE_LETAGERE;
+
+// if (jeuxEnStock === 0) {
+//   console.log("Aucun jeu n'est arrivé aujourd'hui");
+// } else {
+//   console.log("Nombre d'étagères complètement remplies :", etageresPleines);
+//   console.log("Nombre de jeux restants :", jeuxRestants);
+// }
+
+
+
+
+
+const CAPACITE_DE_LETAGERE = 10;
+let jeuxEnStock = Number(prompt("Combien de jeux vidéo avez-vous reçus en stock aujourd'hui ?").replace(/\s/g, ''));
+
+let etageresRemplies = Math.floor(jeuxEnStock / CAPACITE_DE_LETAGERE);
+let jeuxRestants = (jeuxEnStock % CAPACITE_DE_LETAGERE);
 
 if (jeuxEnStock === 0) {
-  console.log("Aucun jeu n'est arrivé aujourd'hui");
+  console.log("Aucun jeux n'a été reçu !");
 } else {
-  console.log("Nombre d'étagères complètement remplies :", etageresPleines);
-  console.log("Nombre de jeux restants :", jeuxRestants);
+  console.log(`Nombre d'étagère remplies : ${etageresRemplies}`);
+  console.log(`Nombre de jeux restants : ${jeuxRestants}`);
 }
