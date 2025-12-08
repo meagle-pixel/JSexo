@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Compteur de Likes chez PixelBay</title>
+  </head>
+  <body>
+    <button id="button"><span id="compteur">👍 Like </span></button>
+
+    <script>
+      const bouton = document.getElementById("button");
+      const compteurLike = document.getElementById("compteur");
+      let compteur = 0;
+
+      bouton.addEventListener("click", function() {
+        compteur++;
+        compteurLike.textContent = `👍 Like : ${compteur}`;
+        console.log("click !");
+      });
+    </script>
+  </body>
+</html>
