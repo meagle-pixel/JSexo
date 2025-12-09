@@ -1,30 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Barre de Progression de Scroll chez PixelBay</title>
     <style>
-        body {
-            height: 300vh; /* Pour permettre le scroll */
-        }
-        footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            height: 5px;
-            background-color: #ff0000;
-            width: 0%;
-        }
+      body {
+        height: 300vh; /* Pour permettre le scroll */
+      }
+      footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 5px;
+        background-color: #ff0000;
+        width: 0%;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Faites défiler la page pour voir la barre de progression</h1>
 
     <footer></footer>
 
     <script>
-        const container = document.querySelector('container');
+      const barre = document.querySelector("footer");
 
+      window.addEventListener("scroll", function () {
+        let position = window.scrollY;
+        let hauteur =
+          document.documentElement.scrollHeight - window.innerHeight;
+        let pourcentage = (position / hauteur) * 100;
+        barre.style.width = pourcentage + "%";
+        barre.style.backgroundColor = "blue";
+      });
     </script>
-</body>
+
+    <!-- // ********** NOTE POUR MOI-MEME ***********
+
+            window représente la fenêtre du navigateur, ce que l'utilisateur peut voir à l'écran.
+            document.documentElement" représente l'élément HTML de la page.
+            scrollHeight c'est la hauteur totale du contenu de la page en pixels, même la partie qu'on ne voit pas encore.
+            window.innerHeight c'est la hauteur visible en pixels, la partie que l'utilisateur peut voir sans scroller. 
+            
+            Pour le calcul on soustrait la hauteur visible "window.innerHeight" à la hauteur maximum de la page, "scrollHeight", 
+            cela nous donne la hauteur maximum qu'un utilisateur peut scroller.
+
+            Pourquoi scrollHeight n’est pas sur window : 
+
+            window représente la fenêtre du navigateur, ce que l’utilisateur voit à l’écran. window ne connaît pas la taille totale du contenu de la page, seulement la taille de la fenêtre visible (innerHeight) et la position du scroll (scrollY).
+            Donc window.scrollHeight n’existe pas, c’est pour ça qu’on ne peut pas l’utiliser.-->
+  </body>
 </html>

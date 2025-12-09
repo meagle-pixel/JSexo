@@ -5,17 +5,19 @@
     <title>Compteur de Likes chez PixelBay</title>
   </head>
   <body>
-    <button id="button"><span id="compteur">👍 Like </span></button>
+    <button id="button"><span id="compteur">👍 Like </span>
+    <span>Test</span></button>
 
     <script>
       const bouton = document.getElementById("button");
       const compteurLike = document.getElementById("compteur");
       let compteur = 0;
 
-      bouton.addEventListener("click", function() {
+      bouton.addEventListener("click", function(e) {
         compteur++;
         compteurLike.textContent = `👍 Like : ${compteur}`;
         console.log("click !");
+        console.log(e.currentTarget.children);
       });
     </script>
   </body>
