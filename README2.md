@@ -8,7 +8,7 @@ Ce projet consiste à poursuivre le développement de mon site web
 
 Continuer sur mon site web "SpaceNews" qui consiste à publier des articles d'actualité sur l'astronomie et le domaine spatial.
 
-**_SpaceNews_**, un site dédié à la publication d’articles d’actualité liés à l’astronomie et au domaine spatial.
+***SpaceNews***, un site dédié à la publication d’articles d’actualité liés à l’astronomie et au domaine spatial.
 
 ## Objectifs
 
