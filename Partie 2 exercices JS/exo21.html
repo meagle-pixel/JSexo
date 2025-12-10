@@ -39,15 +39,25 @@
       const resultat = document.querySelector(".result");
       const formulaire = document.querySelector("form");
 
-      const quantity = document.getElementById("quantity");
-      const unitPrice = document.getElementById("unitPrice");
-      const tax = document.getElementById("tax");
+      const quantityIn = document.getElementById("quantity");
+      const prixIn = document.getElementById("unitPrice");
+      const taxIn = document.getElementById("tax");
 
+      function calculateCart(event) {
+        event.preventDefault(); // Permet de ne pas rafraichir la page
 
+        const quantity = parseFloat(quantityIn.value);
+        const prix = parseFloat(prixIn.value);
+        const tax = parseFloat(taxIn.value);
 
+        const hT = quantity * prix;
+        const ttc = hT * (1 + tax / 100);
+        resultat.textContent = `Le total TTC est de ${ttc.toFixed(2)}€`;
+        resultat.classList.add ("active");
+      }
+
+      formulaire.addEventListener("submit", calculateCart);
       
-      const prixTTC = quantite * prix * (1 + tva / 100);
-
     </script>
   </body>
 </html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Création de Compte PixelBay</title>
+    <style>
+        .success {
+            border: 2px solid green;
+        }
+        .danger {
+            border: 2px solid red;
+        }
+        .success-checked::before {
+            content: "✓ ";
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>PixelBay</h1>
+        <h2>Création du compte</h2>
+        <form method="get" action="#">
+            <div>
+                <label for="firstName"></label>
+                <input id="firstName" type="text" placeholder="firstname" name="firstName">
+            </div>
+
+            <div>
+                <label for="lastName"></label>
+                <input id="lastName" type="text" placeholder="lastname" name="lastName">
+            </div>
+
+            <div>
+                <label for="email"></label>
+                <input id="email" type="email" placeholder="username@gmail.com">
+            </div>
+
+            <div>
+                <label for="pass1"></label>
+                <input id="pass1" type="password" placeholder="password" name="pass1">
+            </div>
+
+            <div>
+                <label for="pass2"></label>
+                <input id="pass2" type="password" placeholder="confirm password" name="pass2">
+            </div>
+
+            <div>
+                <input id="majeur" type="checkbox" name="majeur" value="majeur">
+                <label for="majeur">Vous devez avoir plus de 18 ans pour vous inscrire</label>
+            </div>
+
+            <div>
+                <button type="submit">Register now</button>
+            </div>
+        </form>
+        <p class="message"></p>
+    </main>
+
+    <script>
+        const formulaire = document.querySelector("form");
+        
+
+
+
+
+    </script>
+</body>
+</html>

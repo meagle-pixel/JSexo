@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exo</title>
-</head>
-<body>
-    <h1>Exo</h1>    
-    <!-- <script src="exo16.js"> -->
-    <script src="exo16.js"></script>
-</body>
+  </head>
+  <body>
+    <h1>Exo</h1>
+
+    <script>
+      const CAPACITE_DE_LETAGERE = 10;
+      let jeuxEnStock = Number(
+        prompt(
+          "Combien de jeux vidéo avez-vous reçus en stock aujourd'hui ?").replace(/\s/g, ""));
+
+      let etagereRemplies = Math.floor(jeuxEnStock / CAPACITE_DE_LETAGERE);
+      let reste = jeuxEnStock % CAPACITE_DE_LETAGERE;
+
+      if (jeuxEnStock === 0) {
+        console.log("Aucun jeu n'a été ajouté aujourd'hui");
+      } else {
+        console.log(
+          `Il y a ${etagereRemplies} d'étageres complètement remplies`
+        );
+        console.log(`Il y a ${reste} de reste`);
+      }
+    </script>
+
+    <!-- <script src="exo16.js"></script> -->
+  </body>
 </html>
