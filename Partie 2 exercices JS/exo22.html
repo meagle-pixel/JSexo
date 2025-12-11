@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Création de Compte PixelBay</title>
@@ -7,15 +8,24 @@
         .success {
             border: 2px solid green;
         }
+
         .danger {
             border: 2px solid red;
         }
+
         .success-checked::before {
             content: "✓ ";
             color: green;
         }
+
+        input:focus {
+            outline: none;
+        }
+
+        /* evenement focus c'est lorsque le champ est sélectionné et outline c'est le style de la bordure d'un élément, le none le supprime */
     </style>
 </head>
+
 <body>
     <main>
         <h1>PixelBay</h1>
@@ -60,11 +70,89 @@
 
     <script>
         const formulaire = document.querySelector("form");
-        
+        const message = document.querySelector(".message");
+
+        const firstName = document.getElementById("firstName");
+        const lastName = document.getElementById("lastName");
+        const email = document.getElementById("email");
+        const pass1 = document.getElementById("pass1");
+        const pass2 = document.getElementById("pass2");
+        const majeur = document.getElementById("majeur");
 
 
+        firstName.addEventListener("input", function () {
+            if (firstName.value.length >= 2 && firstName.value.length <= 20) {
+                firstName.classList.remove("danger");
+                firstName.classList.add("success-checked", "success");
+            } else {
+                firstName.classList.remove("success-checked", "success");
+                firstName.classList.add("danger");
+            }
+        });
 
+        lastName.addEventListener("input", function () {
+            if (lastName.value.length >= 2 && lastName.value.length <= 20) {
+                lastName.classList.remove("danger");
+                lastName.classList.add("success-checked", "success");
+            } else {
+                lastName.classList.remove("success-checked", "success");
+                lastName.classList.add("danger");
+            }
+        });
+
+        email.addEventListener("input", function () {
+            if (email.value.includes("@") && email.value.includes(".")) {
+                email.classList.remove("danger");
+                email.classList.add("success-checked", "success");
+            } else {
+                email.classList.remove("success-checked", "success");
+                email.classList.add("danger");
+            }
+        });
+
+        pass1.addEventListener("input", function () {
+            if (pass1.value.length >= 6) {
+                pass1.classList.remove("danger");
+                pass1.classList.add("success-checked", "success");
+            } else {
+                pass1.classList.remove("success-checked", "success");
+                pass1.classList.add("danger");
+            }
+        });
+
+        pass2.addEventListener("input", function () {
+            if (pass2.value === pass1.value) {
+                pass2.classList.remove("danger");
+                pass2.classList.add("success-checked", "success");
+            } else {
+                pass2.classList.remove("success-checked", "success")
+                pass2.classList.add("danger");
+            }
+        });
+
+
+        majeur.addEventListener("change", function () {
+            if (majeur.checked) {
+                majeur.classList.remove("danger");
+                majeur.classList.add("success"); // Pour la cohérence
+            } else {
+                majeur.classList.remove("success");
+                majeur.classList.add("danger");
+            }
+        })
+
+        formulaire.addEventListener("submit", function (event){
+            event.preventDefault();
+            if (firstName.classList.contains("success") && lastName.classList.contains("success") && email.classList.contains("success") && pass1.classList.contains("success") && pass2.classList.contains("success") && majeur.checked) {
+                message.textContent = "Formulaire envoyé avec succés";
+                message.style.color = "green";
+            } else {
+                message.textContent = "Veuillez corriger les erreurs avant de poursuivre.";
+                message.style.color = "red";
+            }
+        });
 
     </script>
 </body>
+
 </html>

@@ -16,6 +16,7 @@ Continuer sur mon site web "SpaceNews" qui consiste à publier des articles d'ac
 - Ajouter de nouvelles cartes présentant différentes planètes directement sur la page.
 - Enrichir le contenu avec de nouveaux articles.
 - Optimiser la structure du site pour une meilleure lisibilité.
+- Tout le maquettage, design, les parties.
 
 ## Langages et logiciels prévus pour la création du site
 
