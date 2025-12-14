@@ -7,3 +7,11 @@ function reducer(a, b, i) {
 }
 const result = myArr.reduce(reducer, 0); // result devient 6
 console.log(result);
+
+
+
+function add(a = 2, b = 3){
+  return a + b;
+}
+console.log(add(8, 7));
+
