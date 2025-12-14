@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma liste de tâches</title>
+    <style>
+        .todo-app {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        #taskInput {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        #taskList {
+            list-style: none;
+            padding: 0;
+        }
+
+        #taskList li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #cf0404;
+            cursor: pointer;
+        }
+
+        #taskList li.completed {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="todo-app">
+            <h1>Ma liste de tâches</h1>
+            <input type="text" id="taskInput" placeholder="Ajouter une tâche">
+            <ul id="taskList"></ul>
+        </div>
+    </main>
+    <script>
+
+        const input = document.getElementById("taskInput");
+        const liste = document.getElementById("taskList");
+        const tittle = document.querySelector("h1");
+
+        input.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                let texte = input.value;
+                const li = document.createElement("li");
+                li.textContent = texte;
+                liste.appendChild(li);
+                input.value = "";  // Permet de vider l'input après avoir appuyer sur entrer
+
+                // Je créer mon évènement lorsque l'utilisateur souhaite terminer une tâche
+                li.addEventListener("click", function () {
+                    li.classList.toggle("completed"); // "toggle" c'est l'interrupteur
+                })
+
+                li.addEventListener("dblclick", function () {
+                    li.remove();
+                    updateTittle();
+                })
+
+                function updateTittle() {
+                    const count = liste.children.length;
+                    tittle.textContent = `Ma liste de tâches (${count})`;
+                }
+
+                liste.appendChild(li);
+                updateTittle();
+
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>
